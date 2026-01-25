@@ -1,0 +1,78 @@
+:root {
+  --primary-blue: #4a90e2;
+  --success-green: #5cb85c;
+  --bg-light: #f4f7fe;
+  --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg-light); margin: 0; }
+
+.dashboard-container {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  height: 90vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  flex: 1;
+  max-width: 400px;
+  overflow-y: auto;
+}
+
+.parking-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: var(--card-shadow);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.icon-p {
+  background: var(--primary-blue);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-details { background: #e0e7ff; color: #4338ca; flex: 1; }
+.btn-reserve { background: var(--success-green); color: white; flex: 1.5; }
+
+/* Map Area Styling */
+.map-view {
+  flex: 2;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.map-placeholder {
+  flex-grow: 1;
+  background: #d1e3ff; /* Placeholder for map tiles */
+  position: relative;
+}
