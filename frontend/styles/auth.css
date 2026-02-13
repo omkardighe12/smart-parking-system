@@ -14,9 +14,6 @@ body {
 }
 
 .auth-container {
-    width: 90%;
-    max-width: 1000px;
-    height: 520px;
     background: #fff;
     display: flex;
     border-radius: 16px;

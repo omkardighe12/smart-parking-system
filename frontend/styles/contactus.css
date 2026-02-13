@@ -9,13 +9,77 @@ body {
     background: #f4f6fb;
     color: #333;
 }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.logo span {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.menu a {
+    margin: 0 43px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.menu a.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+
+.auth-buttons a {
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.login {
+    background: #e9f1ff;
+    color: #007bff;
+}
+
+.register {
+    background: #2ecc71;
+    color: #ffffff;
+}
+
+.hero-section {
+    margin: 20px;
+    height: 500px;
+    border-radius: 50px;}
+
 /* ===== Hero ===== */
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: start;
-    padding: 50px;
+    padding: 150px;
     background: linear-gradient(135deg, #eaf2ff, #f8fbff);
+     background: url(../assets/images/Contact\ us\ upper\ bar.jpeg) center / cover no-repeat;
 }
 
 .hero-text {
@@ -91,4 +155,63 @@ form button:hover {
 .info strong {
     display: block;
     margin-bottom: 4px;
+}
+.footer {
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 40px 0 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #22c55e;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #22c55e;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    background: #020617;
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+    color: #9ca3af;
 }
