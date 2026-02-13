@@ -1,0 +1,312 @@
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.logo span {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.menu a {
+    margin: 0 43px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.menu a.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+
+.auth-buttons a {
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.login {
+    background: #e9f1ff;
+    color: #007bff;
+}
+
+.register {
+    background: #2ecc71;
+    color: #ffffff;
+}
+
+.hero-section {
+    margin: 20px;
+    height: 500px;
+    border-radius: 50px;}
+
+:root {
+  --primary-blue: #4a90e2;
+  --success-green: #5cb85c;
+  --bg-light: #f4f7fe;
+  --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg-light); margin: 0; }
+
+.dashboard-container {
+  display: flex;
+  padding: 45px;
+  gap: 60px;
+  height: 90vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  flex: 1;
+  max-width: 750px;
+  overflow-y: auto;
+}
+
+.parking-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: var(--card-shadow);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.icon-p {
+  background: var(--primary-blue);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-details { background: #e0e7ff; color: #4338ca; flex: 1; }
+.btn-reserve { background: var(--success-green); color: white; flex: 1.5; }
+
+/* Map Area Styling */
+.map-view {
+  flex: 2;
+  background: white;
+  border-radius: 15px;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.map-placeholder {
+  flex-grow: 1;
+  background: #d1e3ff; /* Placeholder for map tiles */
+  position: relative;
+}
+.map {
+    position: relative;
+    height: 2453px;
+    background: url(../assets/images/map-bg.png) center / cover no-repeat;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* PARKING PINS */
+.pin {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pin::after {
+    content: "P";
+    transform: rotate(45deg);
+}
+
+.p1 {
+    top: 60px;
+    left: 120px;
+}
+
+.p2 {
+    top: 150px;
+    right: 140px;
+}
+
+.p3 {
+    bottom: 120px;
+    left: 200px;
+}
+
+.p4 {
+    bottom: 60px;
+    right: 200px;
+}
+
+/* MAP POPUP CARD */
+.map-card {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    width: 260px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.map-card p {
+    color: green;
+}
+
+.reserve.big {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.smart-features {
+    padding: 60px 40px;
+    background: #f4f8fc;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 53px;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.features-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.feature-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-header h3 {
+    font-size: 20px;
+    color: #2c3e50;
+}
+.footer {
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 40px 0 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #22c55e;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #22c55e;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    background: #020617;
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+    color: #9ca3af;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Parking</title>
+    <link rel="stylesheet" href="/smart-parking-system/frontend/styles/findparking.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="navbar">
+        <div class="logo">
+            🚗
+            <span>Smart Parking<br>Management System</span>
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="active">Home</a>
+            <a href="#">Find Parking</a>
+            <a href="#">Book Slot</a>
+            <a href="#">Dashboard</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="#" class="login">Login</a>
+            <a href="#" class="register">Register</a>
+        </div>
+    </header>
+<!-- ===== Header ===== -->
+<section class="header">
+    <h1>Find Parking</h1>
+    <p>Find nearby parking locations and check slot availability in real time.</p>
+</section>
+
+<!-- ===== Main Layout ===== -->
+<section class="container">
+
+    <!-- Search Panel -->
+    <div class="card search">
+        <h2>🔍 Search Parking</h2>
+
+        <label>Location</label>
+        <input type="text" placeholder="Enter location">
+
+        <label>Vehicle Type</label>
+        <select>
+            <option>Car</option>
+            <option>Bike</option>
+        </select>
+
+        <label>Date</label>
+        <input type="date">
+
+        <label>Time</label>
+        <input type="time">
+
+        <button class="btn">Search Parking</button>
+    </div>
+
+    <!-- Map Panel -->
+    <div class="card map-card">
+        <h2>📍 Available Parking Locations</h2>
+
+        <div class="map">
+            <!-- Parking Pins -->
+            <div class="pin p1">P</div>
+            <div class="pin p2">P</div>
+            <div class="pin p3">P</div>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <h3>Main Plaza</h3>
+                <p>Slots Available: <strong>12 / 20</strong></p>
+                <button>View Details</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h3>🚗 Smart Parking</h3>
+            <p>
+                Smart Parking Management System helps users find, reserve,
+                and manage parking slots efficiently using modern technology.
+            </p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Find Parking</a></li>
+                <li><a href="#">Reserve Slot</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>📍 City Center, India</p>
+            <p>📞 +91 98765 43210</p>
+            <p>✉ smartparking@gmail.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Smart Parking Management System | All Rights Reserved
+    </div>
+</footer>
+
+</body>
+
+
+</html>

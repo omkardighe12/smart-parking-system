@@ -7,16 +7,13 @@
 
 body {
     background: #e6f0fa;
-    display: flex;
+   
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
 .auth-container {
-    width: 90%;
-    max-width: 1000px;
-    height: 520px;
     background: #fff;
     display: flex;
     border-radius: 16px;
@@ -27,8 +24,7 @@ body {
 /* LEFT SIDE */
 .auth-left {
     width: 50%;
-    background: linear-gradient(135deg, #0f172a, #1e3a8a);
-    color: #fff;
+    color: #141313;
     padding: 40px;
     text-align: center;
 }
@@ -38,8 +34,8 @@ body {
 }
 
 .auth-left img {
-    width: 80%;
-    margin: 20px 0;
+    width: 115%;
+    margin: 11px -33px;
 }
 
 .auth-left p {

@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f4f6fb;
+    color: #333;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.logo span {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.menu a {
+    margin: 0 43px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.menu a.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+
+.auth-buttons a {
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.login {
+    background: #e9f1ff;
+    color: #007bff;
+}
+
+.register {
+    background: #2ecc71;
+    color: #ffffff;
+}
+
+.hero-section {
+    margin: 20px;
+    height: 500px;
+    border-radius: 50px;}
+
+
+/* ===== Header ===== */
+.header {
+    padding: 50px;
+    background: linear-gradient(135deg, #eef3ff, #f9fbff);
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #555;
+}
+
+/* ===== Layout ===== */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    padding: 40px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+}
+
+/* ===== Search Panel ===== */
+.search label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.search input,
+.search select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #2f80ed;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #256bd6;
+}
+
+/* ===== Map Section ===== */
+.map {
+    position: relative;
+    height: 568px;
+    background: url(../assets/images/Find\ parking.jpeg) center / cover no-repeat;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Parking Pins */
+.pin {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #27ae60;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p1 { top: 30%; left: 25%; }
+.p2 { top: 50%; left: 55%; }
+.p3 { top: 65%; left: 40%; }
+
+/* Info Box */
+.info-box {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.info-box button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #f2c94c;
+    font-weight: 600;
+    cursor: pointer;
+}
+.footer {
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 40px 0 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #22c55e;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #22c55e;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    background: #020617;
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+    color: #9ca3af;
+}
