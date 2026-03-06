@@ -8,8 +8,25 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware — restrict CORS to allowed origins
+const allowedOrigins = [
+    "https://smart-parking-system-app.vercel.app", // production frontend
+    "http://localhost:5500",                         // VS Code Live Server
+    "http://localhost:3000",                         // local dev (if needed)
+    "http://127.0.0.1:5500",
+];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        // Allow requests with no origin (e.g. Postman, curl, server-to-server)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error(`CORS policy: origin ${origin} not allowed`));
+        }
+    },
+    credentials: true,
+}));
 app.use(express.json());
 
 // ── Serve frontend static files ──────────────────────────────────────────────
