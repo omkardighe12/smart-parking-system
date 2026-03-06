@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Smart Parking</title>
+    <link rel="stylesheet" href="../styles/auth.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a Smart Parking account.">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <!-- ===== LEFT PANEL ===== -->
+        <div class="auth-left">
+            <div class="auth-left-brand">🚗 Smart<span>Parking</span></div>
+            <img src="../assets/images/Registerimagesparking-bg.png" alt="Smart Parking Registration">
+            <p>Join thousands of smart drivers.<br>Reserve your spot in seconds.</p>
+
+            <div class="auth-badges">
+                <div class="auth-badge">
+                    <span class="auth-badge-icon">🆓</span>
+                    <span class="auth-badge-text">Free to Register</span>
+                </div>
+                <div class="auth-badge">
+                    <span class="auth-badge-icon">📍</span>
+                    <span class="auth-badge-text">Real-time Slot Availability</span>
+                </div>
+                <div class="auth-badge">
+                    <span class="auth-badge-icon">📲</span>
+                    <span class="auth-badge-text">Instant Booking Confirmation</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RIGHT PANEL ===== -->
+        <div class="auth-right">
+            <h1>Create Account 🚀</h1>
+            <p class="sub">Fill in your details to get started</p>
+
+            <form id="registerForm">
+                <div class="input-group">
+                    <span class="input-icon">👤</span>
+                    <input id="name" type="text" placeholder="Full Name" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon">✉️</span>
+                    <input id="email" type="email" placeholder="Email address" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon">📞</span>
+                    <input id="phone" type="tel" placeholder="Phone Number" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon">🔑</span>
+                    <input id="password" type="password" placeholder="Password (min 6 chars)" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon">🔒</span>
+                    <input id="confirmPassword" type="password" placeholder="Confirm Password" required>
+                </div>
+
+                <button type="submit" id="registerBtn">Create Account →</button>
+
+                <div id="authMsg"></div>
+
+                <p class="switch">
+                    Already have an account?
+                    <a href="login.html">Sign in here →</a>
+                </p>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="../js/api-config.js"></script>
+    <script>
+        const API = window.APP_API_BASE || "http://localhost:5000/api";
+
+        document.getElementById("registerForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById("registerBtn");
+            const msg = document.getElementById("authMsg");
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            msg.style.display = "none";
+
+            if (password !== confirmPassword) {
+                msg.textContent = "Passwords do not match. Please re-enter.";
+                msg.className = "error";
+                msg.style.display = "block";
+                return;
+            }
+
+            if (password.length < 6) {
+                msg.textContent = "Password must be at least 6 characters.";
+                msg.className = "error";
+                msg.style.display = "block";
+                return;
+            }
+
+            btn.textContent = "Creating account…";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(`${API}/auth/register`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, phone, password })
+                });
+                const data = await response.json();
+
+                if (!response.ok) {
+                    msg.textContent = data.message || "Registration failed. Please try again.";
+                    msg.className = "error";
+                    msg.style.display = "block";
+                    return;
+                }
+
+                // G. Save token + user immediately (auto-login after register)
+                if (data.token) {
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                }
+
+                msg.textContent = "Account created! Redirecting…";
+                msg.className = "success";
+                msg.style.display = "block";
+
+                setTimeout(() => window.location.href = "homepage.html", 1200);
+            } catch (err) {
+                msg.textContent = "Server error — please try again later.";
+                msg.className = "error";
+                msg.style.display = "block";
+                console.error(err);
+            } finally {
+                btn.textContent = "Create Account →";
+                btn.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

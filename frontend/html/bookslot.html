@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Parking Slot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/bookslot.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- BACKGROUND SHAPES (from homepage) -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="glass-container">
+        <header class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🚗</span>
+                <span class="logo-text">Smart Parking<br><small>Management System</small></span>
+            </div>
+
+            <nav class="menu">
+                <a href="homepage.html">Home</a>
+                <a href="findparking.html">Find Parking</a>
+                <a href="bookslot.html" class="active">Book Slot</a>
+                <a href="dashboard.html" data-admin-only="true">Dashboard</a>
+                <a href="contactus.html">Contact</a>
+            </nav>
+
+            <div class="auth-buttons" id="authArea"></div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <!-- ===== Page Header ===== -->
+        <section class="page-header">
+            <h1>Book a Parking Slot</h1>
+            <p class="subtitle">
+                Reserve your premium parking slot easily by selecting the location, date, and time that fits your
+                itinerary.
+            </p>
+        </section>
+
+        <!-- ===== Main Content ===== -->
+        <section class="bs-container">
+
+            <!-- Left Panel -->
+            <div class="glass-card form-panel">
+                <h2>🅿️ Select Parking Detail</h2>
+                <p>Choose the location, date and time for your parking reservation to continue.</p>
+
+                <div class="form-group">
+                    <label for="locationSelect">Parking Location</label>
+                    <select id="locationSelect">
+                        <option value="">Loading locations...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reserveDate">Select Date</label>
+                    <input type="date" id="reserveDate">
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicleNumber">Vehicle Number</label>
+                    <input type="text" id="vehicleNumber" placeholder="e.g. MH01AB1234" maxlength="12"
+                        style="text-transform:uppercase;">
+                </div>
+
+                <div class="form-group time-row">
+                    <div>
+                        <label for="reserveStartTime">In Time</label>
+                        <input type="time" id="reserveStartTime">
+                    </div>
+                    <div>
+                        <label for="reserveEndTime">Out Time</label>
+                        <input type="time" id="reserveEndTime">
+                    </div>
+                </div>
+
+                <div id="costEstimate" style="margin-bottom:12px;min-height:1.2em;"></div>
+
+                <button class="btn btn-action btn-reserve" id="reserveBtn">
+                    <span style="font-size:1.1rem;">🅿️</span> Reserve Slot — Direct Entry
+                </button>
+                <p style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:8px;">
+                    ✅ No payment required &nbsp;•&nbsp; Show QR at entry gate
+                </p>
+
+            </div>
+
+            <!-- Right Panel -->
+            <div class="glass-card map-panel">
+                <h2>📍 Available Tracking Map</h2>
+                <div class="map-status">
+                    <div class="status-item"><span class="dot green"></span> Available</div>
+                    <div class="status-item"><span class="dot yellow"></span> Occupied</div>
+                </div>
+
+                <!-- Map Area -->
+                <div class="bs-map-wrapper">
+                    <div id="dynamicCardContainer">
+                        <!-- Dynamic Location Card Injected Here via JS -->
+                        <div class="dynamic-location-card" style="display:none;">
+                            <h3>Select a Location</h3>
+                            <p>to view details here</p>
+                            <button class="btn btn-action reserve">Reserve</button>
+                        </div>
+                    </div>
+
+                    <!-- Parking Pins -->
+                    <div class="pin p1"></div>
+                    <div class="pin p2"></div>
+                    <div class="pin p3"></div>
+                    <div class="pin p4"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ===== My Bookings Section ===== -->
+        <section id="myBookingsSection" class="glass-card" style="display:none; margin-bottom:50px;">
+            <h2>🗒️ My Active Bookings</h2>
+            <div id="myBookingsList" class="my-bookings-list"></div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🚗 Smart Parking</h3>
+                    <p>
+                        Smart Parking Management System helps users find, reserve,
+                        and manage parking slots efficiently using modern technology.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#">Home</a>
+                    <a href="#">Find Parking</a>
+                    <a href="#">Reserve Slot</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 City Center, India</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉ smartparking@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Smart Parking Management System | All Rights Reserved
+            </div>
+        </footer>
+    </div>
+
+    <!-- D. Booking Confirmation Modal -->
+    <div class="confirm-modal-overlay" id="bookingConfirmModal">
+        <div class="confirm-modal">
+            <div class="cm-tick">✅</div>
+            <div class="cm-title">Booking Confirmed!</div>
+            <div class="cm-subtitle">Your parking slot has been reserved successfully.</div>
+            <table class="cm-table">
+                <tr>
+                    <td>Reference #</td>
+                    <td id="cmRef">—</td>
+                </tr>
+                <tr>
+                    <td>📍 Location</td>
+                    <td id="cmLocation">—</td>
+                </tr>
+                <tr>
+                    <td>🚗 Vehicle</td>
+                    <td id="cmVehicle">—</td>
+                </tr>
+                <tr>
+                    <td>🕐 Check In</td>
+                    <td id="cmIn">—</td>
+                </tr>
+                <tr>
+                    <td>🕑 Check Out</td>
+                    <td id="cmOut">—</td>
+                </tr>
+                <tr>
+                    <td>⏱ Duration</td>
+                    <td id="cmDuration">—</td>
+                </tr>
+                <tr>
+                    <td>💰 Est. Cost</td>
+                    <td id="cmCost" class="cm-cost-val">—</td>
+                </tr>
+            </table>
+            <div class="cm-qr">
+                <div class="cm-qr-icon">▦</div>
+                <div>QR Code • Show at entry</div>
+            </div>
+            <div class="cm-actions">
+                <button class="cm-close" id="confirmModalClose" aria-label="Close confirmation">✕ Close</button>
+                <button class="cm-print" id="cmPrintBtn" aria-label="Print receipt">🖨️ Print</button>
+                <button class="cm-view" id="confirmViewBookings" aria-label="View my bookings">📋 My Bookings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/guard.js"></script>
+    <script src="../js/api-config.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/bookslot.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Find Parking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/findparking.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- BACKGROUND SHAPES (from homepage) -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="glass-container">
+        <header class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🚗</span>
+                <span class="logo-text">Smart Parking<br><small>Management System</small></span>
+            </div>
+
+            <nav class="menu">
+                <a href="homepage.html">Home</a>
+                <a href="findparking.html" class="active">Find Parking</a>
+                <a href="bookslot.html">Book Slot</a>
+                <a href="dashboard.html" data-admin-only="true">Dashboard</a>
+                <a href="contactus.html">Contact</a>
+            </nav>
+
+            <div class="auth-buttons" id="authArea"></div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <!-- ===== Header ===== -->
+        <section class="page-header">
+            <h1>Find Parking</h1>
+            <p class="subtitle">Search nearby parking locations and check real-time availability.</p>
+        </section>
+
+        <!-- ===== Main Layout ===== -->
+        <section class="fp-container">
+
+            <!-- Search Panel -->
+            <div class="glass-card fp-search">
+                <h2>🔍 Search Parking</h2>
+
+                <label>Location</label>
+                <input type="text" id="searchLocation" placeholder="Enter location (e.g., Downtown)">
+
+                <label>Vehicle Type</label>
+                <select id="searchVehicleType">
+                    <option value="all">All</option>
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                </select>
+
+                <label>Date</label>
+                <input type="date" id="searchDate">
+
+                <label>Time</label>
+                <input type="time" id="searchTime">
+
+                <button class="btn btn-primary" id="searchBtn">Search Parking</button>
+            </div>
+
+            <!-- Dynamic Parking List & Map Panel -->
+            <div class="fp-main-content">
+                <div class="glass-card fp-list-card">
+                    <div class="fp-list-header">
+                        <h2 style="margin-bottom: 0;">🅿️ Live Availability</h2>
+                        <div style="display:flex;gap:8px;align-items:center;">
+                            <!-- AA. Sort dropdown -->
+                            <select id="sortSelect" aria-label="Sort parking locations"
+                                style="padding:7px 12px;border-radius:25px;border:1px solid rgba(0,0,0,0.12);font-family:inherit;font-size:0.85rem;background:var(--glass-bg,rgba(255,255,255,0.7));cursor:pointer;outline:none;">
+                                <option value="default">Sort: Default</option>
+                                <option value="slots">Slots: Most Available</option>
+                                <option value="price">Price: Low→High</option>
+                                <option value="name">Name: A→Z</option>
+                            </select>
+                            <button id="refreshBtn" class="btn-refresh" aria-label="Refresh parking data">
+                                🔄 Refresh
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Active Search Summary -->
+                    <div id="searchSummary" class="search-summary" style="display: none;">
+                        <div><strong>Active Search:</strong> <span id="summaryText"></span></div>
+                        <button id="clearSearchBtn" class="btn-clear">Clear</button>
+                    </div>
+
+                    <div id="parkingList" class="parking-list-container">
+                        <!-- Parking cards injected here by findparking.js -->
+                        <p style="text-align: center; color: #777;">Loading parking data...</p>
+                    </div>
+                </div>
+
+                <div class="fp-map-wrapper">
+                    <div class="map-container">
+                        <!-- Abstract Map Interface -->
+                        <div class="map-overlay">
+                            <h3>Interactive Zone Map</h3>
+                            <p>Select a pin to quick reserve</p>
+                        </div>
+                        <div class="pin p1" data-id="1">
+                            <div class="tooltip">Main Plaza<br>12 Slots</div>
+                        </div>
+                        <div class="pin p2" data-id="2">
+                            <div class="tooltip">Green Square<br>9 Slots</div>
+                        </div>
+                        <div class="pin p3 pulse" data-id="3">
+                            <div class="tooltip">Central Park<br>2 Slots!</div>
+                        </div>
+                        <div class="pin p4" data-id="4">
+                            <div class="tooltip">Riverside Parking<br>0 Slots</div>
+                        </div>
+
+                        <!-- Popup Card -->
+                        <div class="map-card" id="mapCard">
+                            <h3 id="mcTitle">Main Plaza</h3>
+                            <p id="mcSlots">12 / 20 Slots Available</p>
+                            <button class="btn btn-action reserve" id="mcReserveBtn" data-id="1">Reserve
+                                Instantly</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🚗 Smart Parking</h3>
+                    <p>
+                        Smart Parking Management System helps users find, reserve,
+                        and manage parking slots efficiently using modern technology.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#">Home</a>
+                    <a href="#">Find Parking</a>
+                    <a href="#">Reserve Slot</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 City Center, India</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉ smartparking@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Smart Parking Management System | All Rights Reserved
+            </div>
+        </footer>
+    </div>
+
+    <script src="../js/api-config.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/findparking.js"></script>
+
+</body>
+
+</html>

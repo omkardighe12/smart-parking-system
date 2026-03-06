@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | Smart Parking</title>
+    <link rel="stylesheet" href="../styles/contactus.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the Smart Parking Management System support team.">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+        <div class="logo">
+            🚗
+            <span>Smart Parking<br>Management System</span>
+        </div>
+
+        <nav class="menu">
+            <a href="homepage.html">Home</a>
+            <a href="findparking.html">Find Parking</a>
+            <a href="bookslot.html">Book Slot</a>
+            <a href="dashboard.html" data-admin-only="true">Dashboard</a>
+            <a href="contactus.html" class="active">Contact</a>
+        </nav>
+
+        <div class="auth-buttons" id="authArea"></div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <div class="hero-wrapper">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Contact Us</h1>
+                <p>We're here to help. Send us a message and our support team will get back to you shortly.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-container">
+
+        <!-- Contact Form -->
+        <div class="card">
+            <h2>📧 Send Us a Message</h2>
+            <p>Have questions or need assistance? Feel free to reach out.</p>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Your Name</label>
+                    <input type="text" id="contactName" name="name" placeholder="e.g. Rahul Sharma" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Your Email</label>
+                    <input type="email" id="contactEmail" name="email" placeholder="e.g. rahul@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Your Message</label>
+                    <textarea id="contactMessage" name="message" rows="5" placeholder="Describe your query or issue..."
+                        required></textarea>
+                </div>
+                <button type="submit" id="submitBtn">Send Message 🚀</button>
+                <div id="formMsg"></div>
+            </form>
+        </div>
+
+        <!-- Support Info -->
+        <div class="card">
+            <h2>🎧 Customer Support</h2>
+
+            <div class="info">
+                <div class="info-icon">✉️</div>
+                <div class="info-body">
+                    <strong>Email Us</strong>
+                    <p>support@smartparking.com</p>
+                    <span class="hours-badge">24/7 Support</span>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="info-icon">📞</div>
+                <div class="info-body">
+                    <strong>Call Us</strong>
+                    <p>+91 98765 43210</p>
+                    <span class="hours-badge">Mon–Sat: 9 AM – 6 PM</span>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="info-icon">📍</div>
+                <div class="info-body">
+                    <strong>Visit Us</strong>
+                    <p>City Center, India<br>Parking City, PC 12345</p>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="info-icon">🕐</div>
+                <div class="info-body">
+                    <strong>Working Hours</strong>
+                    <p>Monday – Saturday<br>9:00 AM to 6:00 PM IST</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h3>🚗 Smart Parking</h3>
+                <p>Smart Parking Management System helps users find, reserve, and manage parking slots efficiently using
+                    modern technology.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="findparking.html">Find Parking</a></li>
+                    <li><a href="bookslot.html">Reserve Slot</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📍 City Center, India</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉ smartparking@gmail.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Smart Parking Management System | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="../js/api-config.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Smart Parking</title>
+  <link rel="stylesheet" href="../styles/auth.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login to your Smart Parking account.">
+</head>
+
+<body>
+
+  <div class="auth-container">
+
+    <!-- ===== LEFT PANEL ===== -->
+    <div class="auth-left">
+      <div class="auth-left-brand">🚗 Smart<span>Parking</span></div>
+      <img src="../assets/images/Loginimagesparking-bg.png" alt="Smart Parking Illustration">
+      <p>Secure & Easy Parking Access.<br>Find, reserve and manage in seconds.</p>
+
+      <div class="auth-badges">
+        <div class="auth-badge">
+          <span class="auth-badge-icon">🔒</span>
+          <span class="auth-badge-text">Secure JWT Authentication</span>
+        </div>
+        <div class="auth-badge">
+          <span class="auth-badge-icon">🅿️</span>
+          <span class="auth-badge-text">4 Live Parking Locations</span>
+        </div>
+        <div class="auth-badge">
+          <span class="auth-badge-icon">⚡</span>
+          <span class="auth-badge-text">Instant Slot Reservation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== RIGHT PANEL ===== -->
+    <div class="auth-right">
+      <h1>Welcome Back 👋</h1>
+      <p class="sub">Sign in to access your parking dashboard</p>
+
+      <!-- F. Session expired alert (shows if ?expired=1 in URL) -->
+      <div id="expiredBanner"
+        style="display:none;background:#fef3c7;border:1px solid #f59e0b;color:#92400e;padding:10px 14px;border-radius:10px;margin-bottom:16px;font-size:0.88rem;font-weight:500;">
+        ⏰ Your session has expired. Please sign in again.
+      </div>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <span class="input-icon">✉️</span>
+          <input type="email" id="email" placeholder="Email address" required>
+        </div>
+
+        <div class="input-group">
+          <span class="input-icon">🔑</span>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <a href="#" class="forgot">Forgot Password?</a>
+
+        <button type="submit" id="loginBtn">Sign In →</button>
+
+        <div id="authMsg"></div>
+
+        <p class="switch">
+          Don't have an account?
+          <a href="register.html">Register here →</a>
+        </p>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="../js/api-config.js"></script>
+  <script>
+    const API = window.APP_API_BASE || "http://localhost:5000/api";
+
+    // F. Show expired session banner
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("expired") === "1") {
+      document.getElementById("expiredBanner").style.display = "block";
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById("loginBtn");
+      const msg = document.getElementById("authMsg");
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      btn.textContent = "Signing in…";
+      btn.disabled = true;
+      msg.style.display = "none";
+
+      try {
+        const res = await fetch(`${API}/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          msg.textContent = data.message || "Login failed. Please check your credentials.";
+          msg.className = "error";
+          msg.style.display = "block";
+          return;
+        }
+
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        msg.textContent = "Login successful! Redirecting…";
+        msg.className = "success";
+        msg.style.display = "block";
+
+        // H. Redirect to ?next= page if present, else homepage
+        const nextPage = params.get("next") || "homepage.html";
+        setTimeout(() => window.location.href = nextPage, 1000);
+      } catch (err) {
+        msg.textContent = "Server error — please try again later.";
+        msg.className = "error";
+        msg.style.display = "block";
+        console.error(err);
+      } finally {
+        btn.textContent = "Sign In →";
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Smart Parking Management System — Find, reserve, and manage parking slots in real-time. Save time, reduce fuel consumption, and enjoy hassle-free parking.">
+    <title>Smart Parking Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/homepage-styles.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND SHAPES -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="glass-container">
+        <header class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🚗</span>
+                <span class="logo-text">Smart Parking<br><small>Management System</small></span>
+            </div>
+
+            <nav class="menu">
+                <a href="homepage.html" class="active">Home</a>
+                <a href="findparking.html">Find Parking</a>
+                <a href="bookslot.html">Book Slot</a>
+                <a href="dashboard.html" data-admin-only="true">Dashboard</a>
+                <a href="contactus.html">Contact</a>
+            </nav>
+
+            <div class="auth-buttons" id="authArea"></div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="badge">New Features Available ✨</div>
+                <h1>Find Parking Easily,<br><span class="highlight">Save Time & Fuel</span></h1>
+                <p class="hero-subtitle">Discover available parking spots in real-time. Reserve your slot instantly and
+                    experience hassle-free parking.</p>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Enter your location or destination...">
+                    <button id="searchBtn" class="btn btn-action search-btn">Search</button>
+                </div>
+
+                <div class="hero-buttons">
+                    <button id="findParkingNowBtn" class="btn btn-action">Find Parking</button>
+                    <button id="viewMapBtn" class="btn btn-secondary">View Map</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="home-section">
+
+            <!-- LEFT PANEL -->
+            <div class="left-panel">
+                <div class="panel-header">
+                    <h2>Live Parking Availability</h2>
+                    <div class="pulse-indicator"></div>
+                </div>
+
+                <div class="parking-list">
+                    <div class="parking-card" data-id="1">
+                        <div class="card-header">
+                            <h3>Main Plaza</h3>
+                            <span class="status available">Available</span>
+                        </div>
+                        <p class="slots"><span>12 / 20</span> Slots available</p>
+                        <div class="btn-group">
+                            <button class="btn btn-outline details">Details</button>
+                            <button class="btn btn-primary reserve" data-id="1">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="parking-card" data-id="2">
+                        <div class="card-header">
+                            <h3>Green Square Garage</h3>
+                            <span class="status available">Available</span>
+                        </div>
+                        <p class="slots"><span>9 / 19</span> Slots available</p>
+                        <div class="btn-group">
+                            <button class="btn btn-outline details">Details</button>
+                            <button class="btn btn-primary reserve" data-id="2">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="parking-card" data-id="3">
+                        <div class="card-header">
+                            <h3>Central Park Lot</h3>
+                            <span class="status almost-full">Almost Full</span>
+                        </div>
+                        <p class="slots"><span>2 / 10</span> Slots available</p>
+                        <div class="btn-group">
+                            <button class="btn btn-outline details">Details</button>
+                            <button class="btn btn-primary reserve" data-id="3">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="parking-card" data-id="4">
+                        <div class="card-header">
+                            <h3>Riverside Parking</h3>
+                            <span class="status full">Full</span>
+                        </div>
+                        <p class="slots"><span>0 / 10</span> Slots available</p>
+                        <div class="btn-group">
+                            <button class="btn btn-outline details">Details</button>
+                            <button class="btn btn-primary reserve" data-id="4" disabled>Reserve</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL (MAP) -->
+            <div class="right-panel">
+                <div class="map-container">
+                    <div class="map-overlay">
+                        <h3>Interactive Map</h3>
+                        <p>Click on pins to view details</p>
+                    </div>
+                    <!-- Parking Pins -->
+                    <div class="pin p1 pulse" data-id="1">
+                        <div class="tooltip">Main Plaza</div>
+                    </div>
+                    <div class="pin p2" data-id="2">
+                        <div class="tooltip">Green Square Garage</div>
+                    </div>
+                    <div class="pin p3" data-id="3">
+                        <div class="tooltip">Central Park Lot</div>
+                    </div>
+                    <div class="pin p4" data-id="4">
+                        <div class="tooltip">Riverside Parking</div>
+                    </div>
+
+                    <!-- Popup Card -->
+                    <div class="map-card" id="mapCard">
+                        <h3 id="mcTitle">Main Plaza</h3>
+                        <p id="mcSlots">12 / 20 Slots Available</p>
+                        <button class="btn btn-primary reserve" id="mcReserveBtn" data-id="1">Reserve Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-wrapper-section">
+            <div class="features-grid">
+                <div class="feature-box primary">
+                    <div class="icon">🌐</div>
+                    <h3>Real-time Updates</h3>
+                    <p>Get live updates on parking slot availability with intuitive color indicators.</p>
+                </div>
+                <div class="feature-box secondary">
+                    <div class="icon">🚗</div>
+                    <h3>Reduced Traffic</h3>
+                    <p>Minimize urban congestion caused by drivers endlessly searching for parking spaces.</p>
+                </div>
+                <div class="feature-box primary">
+                    <div class="icon">⏱️</div>
+                    <h3>Save Time & Fuel</h3>
+                    <p>Go directly to your reserved spot, saving valuable time and reducing fuel consumption.</p>
+                </div>
+                <div class="feature-box secondary">
+                    <div class="icon">🌱</div>
+                    <h3>Less Pollution</h3>
+                    <p>A smart city core feature that significantly improves urban mobility and air quality.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🚗 Smart Parking</h3>
+                    <p>
+                        Smart Parking Management System helps users find, reserve,
+                        and manage parking slots efficiently using modern technology.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="homepage.html">Home</a>
+                    <a href="findparking.html">Find Parking</a>
+                    <a href="bookslot.html">Reserve Slot</a>
+                    <a href="contactus.html">Contact</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📍 City Center, India</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉ smartparking@gmail.com</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Smart Parking Management System | All Rights Reserved
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="detailsModalOverlay">
+        <div class="details-modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Parking Location</h2>
+                <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Status: <span id="modalStatus" class="status">Unknown</span></p>
+                <p>Slots Available: <span class="slots" id="modalSlots">--</span></p>
+                <br>
+                <button class="btn btn-primary reserve" id="modalReserveBtn">Reserve Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/api-config.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/home.js"></script>
+
+</body>
+
+</html>
