@@ -867,27 +867,54 @@ body {
 @media (max-width: 768px) {
     .navbar {
         flex-wrap: wrap;
-        padding: 15px;
+        padding: 12px 16px;
         border-radius: 20px;
+        top: 10px;
     }
 
-    .menu {
-        display: none;
-        /* Add hamburger menu logic later */
+    .glass-container {
+        padding: 12px;
     }
 
     .hero-section {
-        padding: 40px 20px;
+        padding: 36px 20px;
         text-align: center;
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .search-box input {
+        padding: 8px 12px;
+    }
+
+    .search-btn {
+        width: 100%;
+        border-radius: 12px;
     }
 
     .hero-buttons {
         justify-content: center;
         flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .footer-content {
@@ -898,8 +925,60 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .footer {
+        padding: 40px 20px 20px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 14px;
+        top: 8px;
+    }
+
+    .glass-container {
+        padding: 10px;
+    }
+
+    .hero-section {
+        padding: 28px 16px;
+    }
+
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.65rem;
+        letter-spacing: -0.3px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 24px;
+    }
+
+    .badge {
+        font-size: 0.78rem;
+        padding: 4px 12px;
+    }
+
+    .btn {
+        font-size: 0.88rem;
+        padding: 10px 18px;
+    }
+
+    .panel-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .map-container {
+        min-height: 280px;
+    }
+
+    .feature-box {
+        padding: 20px 16px;
+    }
+
+    .footer {
+        padding: 30px 16px 16px;
     }
 }
 

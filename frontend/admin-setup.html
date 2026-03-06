@@ -561,6 +561,79 @@
         body.dark-mode .user-status-name {
             color: #f1f5f9;
         }
+
+        /* ── Hamburger ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 600px) {
+            .navbar {
+                margin: 8px 10px;
+                padding: 10px 16px;
+                border-radius: 16px;
+                flex-wrap: wrap;
+                gap: 10px;
+                top: 8px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-back {
+                display: none;
+            }
+
+            .nav-back.menu.open {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                padding: 10px;
+                border-top: 1px solid var(--glass-border);
+                margin-top: 6px;
+            }
+
+            .page-wrap {
+                padding: 20px 12px 40px;
+            }
+
+            .admin-card {
+                padding: 28px 20px;
+                border-radius: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -574,7 +647,10 @@
             <span class="logo-icon">🚗</span>
             <span class="logo-text">Smart Parking<br><small>Management System</small></span>
         </div>
-        <a href="index.html" class="nav-back">← Back to Home</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <a href="index.html" class="nav-back menu">← Back to Home</a>
     </header>
 
     <!-- Main Content -->

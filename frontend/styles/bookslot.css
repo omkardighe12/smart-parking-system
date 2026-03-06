@@ -221,6 +221,69 @@ input:focus {
     .bs-container {
         grid-template-columns: 1fr;
     }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .bs-map-wrapper {
+        min-height: 300px;
+    }
+
+    .glass-card {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .page-header {
+        margin: 20px 0;
+        padding: 10px;
+    }
+
+    .glass-card {
+        padding: 16px;
+    }
+
+    .bs-map-wrapper {
+        min-height: 240px;
+    }
+
+    /* Booking cards — stack actions below info */
+    .my-booking-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .mb-card-actions {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .btn-cancel,
+    .mb-extend-btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    /* Time row — stack in/out vertically */
+    .time-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Confirmation modal */
+    .confirm-modal {
+        padding: 22px 16px;
+    }
+
+    .cm-actions {
+        flex-direction: column;
+    }
 }
 
 /* ===== Rich Dynamic Location Card (new layout) ===== */
