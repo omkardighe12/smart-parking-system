@@ -13,11 +13,11 @@ app.use(cors());
 app.use(express.json());
 
 // ── Serve frontend static files ──────────────────────────────────────────────
-app.use(express.static(path.join(__dirname, "../smart-parking-system/frontend")));
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Redirect root to homepage
 app.get("/", (req, res) => {
-    res.redirect("/html/homepage.html");
+    res.redirect("/index.html");
 });
 
 

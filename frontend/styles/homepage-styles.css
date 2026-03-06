@@ -415,6 +415,11 @@ body {
     color: #d97706;
 }
 
+.status.full {
+    background: rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+}
+
 .slots {
     color: var(--text-muted);
     font-size: 0.9rem;

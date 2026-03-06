@@ -34,10 +34,10 @@
         const user = JSON.parse(localStorage.getItem("user") || "{}");
         if (!user.isAdmin) {
             // Redirect regular users to homepage with a message
-            window.location.href = `homepage.html?msg=admin_only`;
+            window.location.href = `index.html?msg=admin_only`;
             return;
         }
     } catch (_) {
-        window.location.href = `homepage.html`;
+        window.location.href = `index.html`;
     }
 })();

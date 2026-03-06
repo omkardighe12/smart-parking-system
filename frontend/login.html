@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Login | Smart Parking</title>
-  <link rel="stylesheet" href="../styles/auth.css">
+  <link rel="stylesheet" href="./styles/auth.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Login to your Smart Parking account.">
 </head>
@@ -16,7 +16,7 @@
     <!-- ===== LEFT PANEL ===== -->
     <div class="auth-left">
       <div class="auth-left-brand">🚗 Smart<span>Parking</span></div>
-      <img src="../assets/images/Loginimagesparking-bg.png" alt="Smart Parking Illustration">
+      <img src="./assets/images/Loginimagesparking-bg.png" alt="Smart Parking Illustration">
       <p>Secure & Easy Parking Access.<br>Find, reserve and manage in seconds.</p>
 
       <div class="auth-badges">
@@ -72,7 +72,7 @@
 
   </div>
 
-  <script src="../js/api-config.js"></script>
+  <script src="./js/api-config.js"></script>
   <script>
     const API = window.APP_API_BASE || "http://localhost:5000/api";
 
@@ -116,7 +116,7 @@
         msg.style.display = "block";
 
         // H. Redirect to ?next= page if present, else homepage
-        const nextPage = params.get("next") || "homepage.html";
+        const nextPage = params.get("next") || "index.html";
         setTimeout(() => window.location.href = nextPage, 1000);
       } catch (err) {
         msg.textContent = "Server error — please try again later.";
