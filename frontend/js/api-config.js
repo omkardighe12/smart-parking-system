@@ -6,6 +6,6 @@
  * Usage: const API = window.APP_API_BASE;
  */
 (function () {
-    // Change this to your production URL when deploying
-    window.APP_API_BASE = "http://localhost:5000/api";
+    // Production backend URL (Render)
+    window.APP_API_BASE = "https://smart-parking-system-4wo2.onrender.com/api";
 })();
